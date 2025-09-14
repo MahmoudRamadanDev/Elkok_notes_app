@@ -9,7 +9,11 @@ class NotesView extends StatelessWidget {
       appBar: AppBar(
         
       ),
-      body: Center(child: Text("hello Mahmoud ")),
+      body: ListView(
+        children: [
+          Text("Hello "),
+        ],
+      ),
     );
   }
 }

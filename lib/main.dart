@@ -11,7 +11,11 @@ const  NotesApp({super.key}) ;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(),
+      theme: ThemeData(
+        fontFamily: "Poppins" ,
+        brightness: Brightness.dark,
+      ),
+      
       debugShowCheckedModeBanner: false,
       routes: {
         NotesView.id : (context) => NotesView() ,

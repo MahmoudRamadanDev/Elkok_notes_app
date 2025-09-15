@@ -3,13 +3,13 @@ import 'package:intl/intl.dart';
 import 'package:notes_app/constant.dart';
 
 class CustomNoteItem extends StatelessWidget {
-  const CustomNoteItem({super.key});
-
+  const CustomNoteItem( {super.key , this.color} );
+  final Color? color ; 
   @override
   Widget build(BuildContext context) {
     return Container(
                 decoration: BoxDecoration(
-                  color: Color(0xffFFCC80),
+                  color: color == null ?  Color(0xffFFCC80) : color,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 padding: EdgeInsets.only(left: 24 , top: 24 , bottom: 24),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/views/edit_note_view.dart';
 import 'package:notes_app/views/notes_view.dart';
 
 void main () {
@@ -19,6 +20,7 @@ const  NotesApp({super.key}) ;
       debugShowCheckedModeBanner: false,
       routes: {
         NotesView.id : (context) => NotesView() ,
+        EditNoteView.editViewId : (context) => EditNoteView() ,
       } ,
       initialRoute: NotesView.id,
     );

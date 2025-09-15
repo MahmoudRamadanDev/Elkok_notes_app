@@ -11,7 +11,7 @@ class CustomAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(text, style: TextStyle(fontSize: 30)),
-        CustomIcon(icon: Icons.search),
+        CustomIcon(icon: icon),
       ],
     );
   }

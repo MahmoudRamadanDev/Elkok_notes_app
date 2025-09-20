@@ -13,7 +13,9 @@ class AddNotesBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 25),
+      
       child: SingleChildScrollView(
+
         child: BlocConsumer<AddNoteCubit , AddNoteStates>(
           listener: (context, state) {
 

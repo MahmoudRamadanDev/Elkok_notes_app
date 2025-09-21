@@ -9,7 +9,7 @@ class NotesView extends StatelessWidget {
   static String id = "NotesView";
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<NotesCubit>(
       create: (context) => NotesCubit(),
       child: Scaffold(
         body: NotesViewBody(),

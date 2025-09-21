@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:notes_app/constant.dart';
+import 'package:notes_app/models/notes_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class CustomNoteItem extends StatelessWidget {
-  const CustomNoteItem( {super.key , this.color} );
-  final Color? color ; 
+  const CustomNoteItem( {super.key, required this.note } );
+  final NotesModel note ;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -14,7 +15,7 @@ class CustomNoteItem extends StatelessWidget {
       },
       child: Container(
                   decoration: BoxDecoration(
-                    color: color == null ?  Color(0xffFFCC80) : color,
+                    color:  Color(note.color) ,
                     borderRadius: BorderRadius.circular(16),
                   ),
                   padding: EdgeInsets.only(left: 24 , top: 24 , bottom: 24),
@@ -24,12 +25,12 @@ class CustomNoteItem extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 24),
                         child: ListTile(
-                          title:Text("Flutter Testing" , style: TextStyle(fontSize: 26 , color: kPrimaryColor ),) ,
+                          title:Text(note.title, style: TextStyle(fontSize: 26 , color: kPrimaryColor ),) ,
                           subtitle: Padding(
                             padding: const EdgeInsets.only(
                               top: 18
                             ),
-                            child: SizedBox(width:200 , child: Text("Build Your Carer With Tharwat Samy." , style: TextStyle(fontSize: 15 , color: kPrimaryColor.withValues(alpha: .4)), maxLines: 2,)),
+                            child: SizedBox(width:200 , child: Text(note.subTitle, style: TextStyle(fontSize: 15 , color: kPrimaryColor.withValues(alpha: .4)), maxLines: 2,)),
                           ),
                           trailing: IconButton(onPressed: () {}, icon: Icon(Icons.delete , size: 32  , color: kPrimaryColor,)),
                         ),

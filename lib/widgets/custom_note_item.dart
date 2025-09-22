@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:notes_app/constant.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/notes_model.dart';
@@ -13,7 +12,9 @@ class CustomNoteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, EditNoteView.editViewId);
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return EditNoteView(note: note,) ;
+        }));
       },
       child: Container(
                   decoration: BoxDecoration(

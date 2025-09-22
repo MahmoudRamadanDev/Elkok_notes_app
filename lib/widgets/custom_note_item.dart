@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:notes_app/constant.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/notes_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
@@ -32,12 +34,16 @@ class CustomNoteItem extends StatelessWidget {
                             ),
                             child: SizedBox(width:200 , child: Text(note.subTitle, style: TextStyle(fontSize: 15 , color: kPrimaryColor.withValues(alpha: .4)), maxLines: 2,)),
                           ),
-                          trailing: IconButton(onPressed: () {}, icon: Icon(Icons.delete , size: 32  , color: kPrimaryColor,)),
+                          trailing: IconButton(
+                            onPressed: () {
+                            note.delete();
+                            BlocProvider.of<NotesCubit>(context).featchAllNotes();
+                            }, icon: Icon(Icons.delete , size: 32  , color: kPrimaryColor,)),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 24),
-                        child: Text(DateFormat.yMMMEd().format(DateTime.now()) , style: TextStyle(fontSize: 16 , color:kPrimaryColor.withValues(alpha: .4) ),),
+                        child: Text(note.date , style: TextStyle(fontSize: 16 , color:kPrimaryColor.withValues(alpha: .4) ),),
                       ) ,
                     ],
                   ),

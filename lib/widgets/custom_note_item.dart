@@ -38,7 +38,7 @@ class CustomNoteItem extends StatelessWidget {
                           trailing: IconButton(
                             onPressed: () {
                             note.delete();
-                            BlocProvider.of<NotesCubit>(context).featchAllNotes();
+                            BlocProvider.of<NotesCubit>(context).featchAllNotes(); 
                             }, icon: Icon(Icons.delete , size: 32  , color: kPrimaryColor,)),
                         ),
                       ),

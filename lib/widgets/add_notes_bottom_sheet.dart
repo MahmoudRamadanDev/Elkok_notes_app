@@ -18,12 +18,14 @@ class AddNotesBottomSheet extends StatelessWidget {
 
         listener: (context, state) {
       
-          if (state is AddNoteFialurState ) {
+          if (state is AddNoteFialurState) {
       
             print("there was an error${state.errMessage}");
       
           } else if (state is AddNoteSuccessFullState) {
-            BlocProvider.of<NotesCubit>(context).featchAllNotes();
+
+            BlocProvider.of<NotesCubit>(context).featchAllNotes(); // Refresh Data 
+
               Navigator.pop(context) ;
               
           }
@@ -32,7 +34,8 @@ class AddNotesBottomSheet extends StatelessWidget {
           return AbsorbPointer( 
             absorbing: state is AddNoteLoadingState ? true : false ,
             child: Padding(
-              padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom , left: 25 , right: 25 , top: 25),
+              padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom
+               , left: 25 , right: 25 , top: 25), //
               child: SingleChildScrollView(child: AddNoteForm()),
             ),
           );

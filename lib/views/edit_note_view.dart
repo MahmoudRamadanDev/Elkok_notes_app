@@ -27,9 +27,12 @@ class _EditNoteViewState extends State<EditNoteView> {
           child: Column(
             children: [
               CustomAppBar(text: "EditNote", icon: Icons.check , onPressed: () {
+
                 widget.note.title = title ?? widget.note.title;
                 widget.note.subTitle = subTitle ?? widget.note.subTitle;
+                
                 widget.note.save();
+
                 BlocProvider.of<NotesCubit>(context).featchAllNotes();
                 Navigator.pop(context) ;
               },) ,
